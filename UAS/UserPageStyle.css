@@ -1,0 +1,431 @@
+@font-face {
+    font-family: "Plus Jakarta Sans";
+    src: url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    height: auto;
+    padding: 100px 20px 40px;
+    flex-direction: column;
+    align-items: center;
+    gap: 66px;
+    background: linear-gradient(0deg, #171717 0%, #171717 100%), #FFF;
+}
+
+nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    background: rgba(37, 37, 37, 0.8);
+    /* border: 1px solid #B0DB9C; */
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: #B0DB9C 0px 0px 10px 0px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+nav:hover {
+    box-shadow: #B0DB9C 0px 0px 20px 0px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+nav ul li {
+    list-style: none;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+nav ul li a {
+    background: linear-gradient(0deg, #171717 0%, #171717 100%), #FFF;
+    border-radius: 30px;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    color: #FFF;
+}
+
+nav ul li a:hover {
+    background: #FFF;
+    color: var(--SubMainColor, #222);
+}
+
+.container {
+    display: flex;
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 50px;
+    flex-shrink: 0;
+    border-radius: 52px;
+    background: var(--SubMainColor, #222);
+}
+
+.UserName {
+    display: flex;
+    padding: 20px;
+    width: 1037px;
+    align-items: center;
+    gap: 56px;
+}
+
+.PhotoProfile {
+    position: relative;
+    display: flex;
+    width: 200px;
+    height: 200px;
+    overflow: visible;
+}
+
+.Picture {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+}
+
+.PhotoProfile .EditIcon {
+    position: absolute;
+    bottom: 1px;     
+    right: 10px; 
+    cursor: pointer;
+    transition: transform,box-shadow 0.3s ease-in-out;
+    border-radius: 50%;
+    overflow: visible;
+}
+
+.PhotoProfile .EditIcon:hover {
+    transform: scale(1.1);
+    transition: transform,box-shadow 0.3s ease-in-out;
+    box-shadow: #777 0px 0px 10px;
+    border-radius: 50%;
+    overflow: visible;
+
+}
+
+
+
+
+.InfoProfile {
+    display: flex;;
+    height: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 20px;
+}
+
+.InfoProfile_Name {
+    color: #FFF;
+}
+
+.InfoProfile_Name h1 {
+    color: #FFF;
+    font-size: 38px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.InfoProfile_Name p {
+    color: #FFF;
+    font-size: 20px;
+    font-style: thin;
+    font-weight: 100;
+}
+
+.Playlist {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    width: 100%;
+}
+
+.PlaylistHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.PlaylistHeader h2 {
+    color: #FFF;
+    font-size: 45px;
+    font-weight: 700;
+}
+
+#AddPlaylistIcon {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+#AddPlaylistIcon:hover {
+    transform: scale(1.1);
+}
+
+.PlaylistItemContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 20px;
+    gap: 20px;
+}
+
+.PlaylistItem {
+    width: auto;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.PlaylistItem img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 30px;
+
+}
+
+.PlaylistItem p {
+    color: #FFF;
+    font-size: 16px;
+    text-align: center;
+}
+
+.FavoriteSong {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.FavoriteSong h2 {
+    color: #FFF;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.FavoriteSongItem {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    gap: 66px;
+}
+
+.FavoriteSong img {
+    width: 96.925px;
+    height: 93.414px;
+    flex-shrink: 0;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.SongName {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 27.641px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.ArtistName {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 17,13851686507937;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+
+.popup-overlay {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 306px;
+    width: 100%;
+    max-height: 205px;
+    height: 65%;
+    background: #373737;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    border-radius: 10px; /* memberi ruang agar tidak terlalu sempit */
+}
+
+/* Form utama */
+.FormContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+}
+
+/* Bagian atas: judul + input */
+.popup-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    gap: 20px;
+}
+
+/* Judul */
+.popup-content h2 {
+    color: #FDFAF6;
+    font-size: 24px;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* Input playlist */
+.popup-content input[type="text"] {
+    width: 50%;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    background: #222;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    transition: width 0.3s ease-in-out;
+}
+
+/* Placeholder behavior */
+.popup-content input[type="text"]::placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.popup-content input[type="text"]:focus::placeholder {
+    opacity: 1;
+}
+
+/* Saat focus atau ada input */
+.popup-content input[type="text"]:focus,
+.popup-content input[type="text"]:not(:placeholder-shown) {
+    width: 80%;
+}
+
+/* Tombol bawah */
+.form-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 0 0 10px 10px; /* memberi ruang agar tidak terlalu sempit */
+}
+
+.form-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.form-buttons button:hover {
+    background-color: #777;
+}
+
+
+
+#blur-background {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    background-color: rgba(0, 0, 0, 0.3); /* bisa diatur transparansinya */
+    z-index: 999; /* di bawah popupForm yang 1000 */
+}
+
+.edit {
+    display: flex;
+    padding: 20px 20px 0px 20px;
+    width: 100%;
+
+}
+
+.edit button {
+    width: 10%;
+    height: 30px;
+    background-color: #555;
+    color: #FFF;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.edit button:hover {
+    background-color: #777;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.popup-content input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background: #222;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+

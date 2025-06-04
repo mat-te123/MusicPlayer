@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PlanStyle.css">
+    <title>UserPage</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="Main.php">Home</a></li>
+            <li><a href="queue.php">Queue</a></li>
+            <li><a href="Plan.html">Plan</a></li>
+            <li><a href="UserPages.php">User</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Our Offer</h1>
+        <div class="PlanContainer">
+            <div class="PlanItemContainer">
+                <h2>Standard</h2>
+                <div class="PlanContent">
+                    <p>Enjoy a wide range of features with our Standard plan, including access to all basic functionalities and regular updates.</p>
+                    <form action="subscribe.php" method="post">
+                        <button type="submit" name="role" value="Standard">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="PlanItemContainer">
+                <h2>Premium</h2>
+                <div class="PlanContent">
+                    <p>Experience the best with our Premium plan, offering exclusive features, priority support, and ad-free browsing.</p>
+                    <form action="subscribe.php" method="post">
+                        <button type="submit" name="role" value="Premium">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>  
+</body>
+</html>
