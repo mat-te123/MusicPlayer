@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "Plus Jakarta Sans";
-    src: url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
-    font-display: swap;
-}
 
 * {
     margin: 0;
@@ -15,7 +10,7 @@ body {
     display: flex;
     min-height: 100vh;
     height: auto;
-    padding-top: 60px;
+    padding: 100px 20px 40px;
     flex-direction: column;
     align-items: center;
     gap: 66px;
@@ -23,18 +18,28 @@ body {
 }
 
 nav {
-    display: flex;
-    max-width: 500px;
-    width: 100%;
+    height: auto;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    background: rgba(37, 37, 37, 0.8);
+    /* border: 1px solid #B0DB9C; */
+    border-radius: 50px;
     padding: 20px;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--SubMainColor, #222);
-    border-radius: 30px;
-    
-
+    box-shadow: #B0DB9C 0px 0px 10px 0px;
+    transition: box-shadow 0.3s ease-in-out;
 }
+
+nav:hover {
+    box-shadow: #B0DB9C 0px 0px 20px 0px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
 nav ul {
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -42,6 +47,7 @@ nav ul {
 }
 
 nav ul li {
+    width: 100%;
     list-style: none;
     font-size: 15px;
     font-style: normal;
@@ -49,10 +55,21 @@ nav ul li {
     line-height: normal;
 }
 nav ul li a {
+    width: 100%;
     background: linear-gradient(0deg, #171717 0%, #171717 100%), #FFF;
     border-radius: 30px;
     text-decoration: none;
     padding: 0.5rem 1rem;
+    color: #FFF;
+}
+
+#logout {
+    background: #993131;
+    cursor: pointer;
+}
+
+#logout:hover {
+    background: rgb(255, 82, 82);
     color: #FFF;
 }
 
@@ -65,21 +82,21 @@ nav ul li a:hover {
     display: flex;
     max-width: 800px;
     width: 100%;
-    height: 100%;
+    height: auto;
     padding: 40px;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    gap: 70px;
+    gap: 50px;
     flex-shrink: 0;
-    border-radius: 52px 52px 0px 0px;
+    border-radius: 52px;
     background: var(--SubMainColor, #222);
 }
 
 .UserName {
     display: flex;
     padding: 20px;
-    width: 1037px;
+    width: 100%;
     align-items: center;
     gap: 56px;
 }
@@ -103,6 +120,7 @@ nav ul li a:hover {
     display: flex;;
     height: 100%;
     flex-direction: column;
+    justify-content: center;
     align-items: flex-start;
     align-content: flex-start;
     gap: 20px;
@@ -174,7 +192,8 @@ nav ul li a:hover {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 74px;
+    gap: 50px;
+    width: 100%;
 }
 
 .FavoriteSong h2 {
@@ -188,14 +207,29 @@ nav ul li a:hover {
 .FavoriteSongItem {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     gap: 66px;
+    background-color: #171717;
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
+    transition: all 0.3s ease-in-out;
 }
 
+.FavoriteSongItem:hover {
+    background-color: #B0DB9C;
+    transition: all 0.3s ease-in-out;
+}
+
+.FavoriteSongItem:hover .SongName,
+.FavoriteSongItem:hover .ArtistName {
+    color: #222;
+    transition: color 0.3s ease-in-out;
+}
 .FavoriteSong img {
-    width: 96.925px;
-    height: 93.414px;
+    width: 50.925px;
+    height: 50.414px;
     flex-shrink: 0;
     object-fit: cover;
     border-radius: 20px;
@@ -204,18 +238,132 @@ nav ul li a:hover {
 .SongName {
     color: #FFF;
     text-decoration: none;
-    font-size: 27.641px;
+    font-size: 17.641px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+        transition: all 0.3s ease-in-out;
 }
 
 .ArtistName {
     color: #FFF;
     text-decoration: none;
-    font-size: 27.641px;
+    font-size: 17.641px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+        transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 375px) {
+    nav {
+        display: flex;
+        padding: 8px 20px;
+    }
+
+    nav ul {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 17px;
+    }
+
+    nav ul li {
+        width: 100%;
+        list-style: none;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    nav ul li a {
+        width: 100%;
+        background: linear-gradient(0deg, #171717 0%, #171717 100%), #FFF;
+        border-radius: 30px;
+        text-decoration: none;
+        padding: 2.5px 6px;
+        color: #FFF;
+    }
+    
+    body {
+        padding: 100px 30px 40px;
+    }
+
+    .UserName {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .PhotoProfile {
+        width: 150px;
+        height: 150px;
+        overflow: hidden;
+    }
+
+    .PhotoProfile .EditIcon {
+        bottom: 10px;     
+        right: 10px; 
+    }
+
+
+    .Picture {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 100px;
+        display: block;
+    }
+
+    .InfoProfile {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+    }
+    .InfoProfile_Name {
+        text-align: center;
+    }
+
+    .InfoProfile_Name h2 {
+        font-size: 17px;
+    }
+
+    .InfoProfile_Name p {
+        font-size: 14px;
+    }
+
+    .FavoriteSong {
+        gap: 20px;
+    }
+
+    .FavoriteSong h2 {
+        font-size: 20px;
+    }
+
+    .FavoriteSongItem {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .FavoriteSong img {
+        width: 30.925px;
+        height: 30.414px;
+    }
+
+    .FavoriteSongItemContainer {
+        gap: 10px;
+    }
+
+    .SongName {
+        font-size: 14px;
+    }
+
+    .ArtistName {
+        font-size: 12px;
+    }
 }
 

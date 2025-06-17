@@ -11,7 +11,7 @@ if (isset($_SESSION['UserName']) && isset($_SESSION['id_user'])) {
     $username = $_SESSION['UserName'];
     $iduser = $_SESSION['id_user'];
 
-    $MainQuery = "SELECT * FROM USER WHERE UserName = '$username' AND ID_USER = '$iduser'";
+    $MainQuery = "SELECT status_user.* , user.* FROM user join status_user on status_user.id_status = user.id_status WHERE UserName = '$username' AND id_user = '$iduser'";
     $result = mysqli_query($conn, $MainQuery);
 
     if ($result && mysqli_num_rows($result) > 0) {

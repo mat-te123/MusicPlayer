@@ -7,7 +7,7 @@ $genre = $_GET['genre_id'] ?? '';
 $genre = mysqli_real_escape_string($conn, $genre);
 // Query untuk mengambil data musik berdasarkan genre
 
-$MusikGenreQuery = "SELECT musik.CoverLagu, musik.NamaLagu, artis.NamaArtis FROM musik_genre
+$MusikGenreQuery = "SELECT musik.id_musik, musik.CoverLagu, musik.NamaLagu, artis.NamaArtis FROM musik_genre
 join musik on musik.id_musik = musik_genre.id_musik
 join artis on musik.id_artis = artis.id_artis 
 WHERE musik_genre.id_genre = '$genre'";
@@ -22,6 +22,9 @@ if (!$MusikGenreResult) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="GenrePageStyle.css">
     <title>Document</title>
 </head>
@@ -29,9 +32,9 @@ if (!$MusikGenreResult) {
     <nav>
         <ul>
             <li><a href="Main.php">Home</a></li>
-            <li><a href="Queue.php">Queue</a></li>
             <li><a href="Plan.php">Playlist</a></li>
             <li><a href="UserPages.php">User</a></li>
+            <li><a id="logout">Logout</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -59,12 +62,21 @@ if (!$MusikGenreResult) {
                     <?php while ($row = mysqli_fetch_assoc($MusikGenreResult)) { ?>
                         <div class="GenreItem">
                             <img src="<?php echo htmlspecialchars($row['CoverLagu']); ?>" alt="Song Cover">
-                            <p><?php echo htmlspecialchars($row['NamaLagu']); ?> - <?php echo htmlspecialchars($row['NamaArtis']); ?></p>
+                            <p style="cursor: pointer;" class="NamaLagu" onclick="window.location.href='Main.php?id_musik=<?= $row['id_musik'] ?>'"><?php echo htmlspecialchars($row['NamaLagu']);?></p>
+                            <p style="cursor: pointer;" class="NamaArtis" onclick="window.location.href='ArtistPage.php?NamaArtis=<?= $row['NamaArtis'] ?>'"><?php echo htmlspecialchars($row['NamaArtis']); ?></p>
                         </div>
                     <?php } ?>
                 </div>
             <?php endif; ?>
         </div>
     </div>
+    <script>
+        document.getElementById('logout').addEventListener('click', function() {
+            if (confirm('Apakah Anda yakin ingin keluar?')) {
+                alert('Anda telah keluar dari akun Anda.');
+                window.location.href = 'Logout.php';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,9 +1,3 @@
-@font-face {
-    font-family: "Plus Jakarta Sans";
-    src: url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
-    font-display: swap;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -14,27 +8,34 @@
 body {
     display: flex;
     min-height: 100vh;
-    height: 1000px;
-    padding-top: 60px;
+    height: auto;
+    padding: 100px 20px 40px;
     flex-direction: column;
     align-items: center;
-    flex-direction: column;
     gap: 66px;
     background: linear-gradient(0deg, #171717 0%, #171717 100%), #FFF;
 }
 
 nav {
-    display: flex;
-    max-width: 500px;
-    width: 100%;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    backdrop-filter: blur(20px);
+    background: rgba(37, 37, 37, 0.8);
+    /* border: 1px solid #B0DB9C; */
+    border-radius: 50px;
     padding: 20px;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--SubMainColor, #222);
-    border-radius: 30px;
-    
-
+    box-shadow: #B0DB9C 0px 0px 10px 0px;
+    transition: box-shadow 0.3s ease-in-out;
 }
+
+nav:hover {
+    box-shadow: #B0DB9C 0px 0px 20px 0px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
 nav ul {
     display: flex;
     justify-content: center;
@@ -57,6 +58,16 @@ nav ul li a {
     color: #FFF;
 }
 
+#logout {
+    background: #993131;
+    cursor: pointer;
+}
+
+#logout:hover {
+    background: rgb(255, 82, 82);
+    color: #FFF;
+}
+
 nav ul li a:hover {
     background: #FFF;
     color: var(--SubMainColor, #222);
@@ -66,119 +77,146 @@ nav ul li a:hover {
     display: flex;
     max-width: 800px;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     padding: 40px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    gap: 70px;
     flex-shrink: 0;
-    border-radius: 52px 52px 0px 0px;
+    border-radius: 52px;
     background: var(--SubMainColor, #222);
 }
 
-.PlaylistName {
-    display: flex;
-    padding: 20px;
-    width: 1037px;
-    align-items: center;
-    gap: 56px;
-}
-
-.PhotoPlaylist {
-    display: flex;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-}
-
-.PhotoPlaylist img {
+.playlistContainer {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-}
-
-.InfoPlaylist {
-    display: flex;;
-    height: 100%;
-    justify-content: center;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.InfoPlaylist_Name {
-    color: #FFF;
-}
-
-.InfoPlaylist_Name h1 {
-    color: #FFF;
-    font-size: 38px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-}
-
-.InfoPlaylist_Name p {
-    color: #FFF;
-    font-size: 15px;
-    font-style: thin;
-    font-weight: 100;
-}
-
-.PlayButton {
-    position: relative;
     display: flex;
-    left: 45%;
-    cursor: pointer;
-
+    flex-direction: column;
+    gap: 30px;
+    color: #FFF;
 }
-.ListSong {
+.playlistList {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 50px;
+    width: 100%;
+    gap: 20px;
 }
 
-.ListSong h2 {
-    color: #FFF;
-    font-size: 45px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-}
-
-.ListSongItem {
+.playlistItem {
+    border-radius: 20px;
+    width: 100%;
+    padding: 20px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: row;
     align-items: center;
-    gap: 66px;
+    justify-content: space-between;
+    background-color: #171717;
+    transition: all 0.3s ease-in-out;
+    
 }
 
-.ListSong img {
-    width: 96.925px;
-    height: 93.414px;
-    flex-shrink: 0;
-    object-fit: cover;
+.playlistItem:hover {
+    background-color: #B0DB9C;
+    color: #171717;
+    
+}
+
+.playlistItem img {
+    width: 70px;
+    height: 70px;
     border-radius: 20px;
 }
 
-.SongName {
+.playlistItem p {
     color: #FFF;
-    text-decoration: none;
-    font-size: 27.641px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
+    transition: all 0.3s ease-in-out;
+    font-weight: 800;
+    cursor: pointer;
 }
 
-.ArtistName {
-    color: #FFF;
-    text-decoration: none;
-    font-size: 27.641px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.playlistItem:hover p {
+    color: black;
 }
+
+.deletebtn {
+    padding: 10px;
+    background-color: #AF3E3E;
+    border: none;
+    border-radius: 20px;
+    color: #FFF;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.deletebtn:hover {
+    background-color: #5a1f1f;
+}
+
+.HeaderContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 375px) {
+    h2 {
+        font-size: 15px;
+    }
+    nav {
+        display: flex;
+        padding: 8px 20px;
+    }
+
+    nav ul {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 17px;
+    }
+
+    nav ul li {
+        width: 100%;
+        list-style: none;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: normal;
+    }
+
+    nav ul li a {
+        width: 100%;
+        background: linear-gradient(0deg, #171717 0%, #171717 100%), #FFF;
+        border-radius: 30px;
+        text-decoration: none;
+        padding: 2.5px 6px;
+        color: #FFF;
+    }
+    
+    body {
+        padding: 100px 30px 40px;
+    }
+
+    .deletebtn {
+        font-size: 8px;
+        padding: 6px;
+    }
+
+    .playlistItem {
+        padding: 10px;
+    }
+
+    .playlistItem img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .playlistItem p {
+        font-size: 10px;
+    }
+}
+
 

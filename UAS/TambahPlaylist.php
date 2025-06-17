@@ -38,20 +38,4 @@ if (isset($_POST['addPlaylistBtn'])) {
         exit;
     }
 }
-
-if (isset($_POST['insertPlaylistBtn'])) {
-    $playlist_name = $_POST['playlist_name'];
-    $Playlistid = $_POST['id_playlist'];
-
-    $query = "INSERT INTO PLAYLIST_MUSIK (id_playlist,id_musik) VALUES ('$Playlistid','$id_musik')";
-    $result = mysqli_query($conn, $query);
-
-    if (!$result) {
-        echo "<script>alert('Error: " . mysqli_error($conn) . "');</script>";
-    } else {
-        echo "<script>alert('Lagu berhasil ditambahkan!'); window.location.href='Main.php';</script>";
-        exit;
-    }
-
-}
 ?>
